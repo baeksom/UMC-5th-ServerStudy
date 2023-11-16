@@ -21,11 +21,9 @@ public class MemberPrefer extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    @Column(nullable = false)
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @Column(nullable = false)
     private FoodCategory foodCategory;
 }
