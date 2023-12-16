@@ -1,7 +1,7 @@
 package umc.umcspring.web.dto;
 
 import lombok.Getter;
-import umc.umcspring.validation.annotation.ExistCategories;
+import umc.umcspring.validation.annotation.ExistFoodCategories;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -26,7 +26,7 @@ public class MemberRequestDTO {
         String address;
         @Size(min = 5, max = 12)
         String specAddress;
-        @ExistCategories
+        @ExistFoodCategories
         List<Long> preferCategory;
     }
 }
