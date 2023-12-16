@@ -1,6 +1,9 @@
 package umc.umcspring.domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.umcspring.domain.common.BaseEntity;
 import umc.umcspring.domain.enums.Gender;
 import umc.umcspring.domain.enums.MemberStatus;
@@ -16,6 +19,8 @@ import java.util.List;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -32,8 +37,11 @@ public class Member extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
-    @Column(nullable = false)
-    private LocalDate birthDate;
+//    @Column(nullable = false)
+//    private LocalDate birthDate;
+
+    @Column(nullable = false, length = 40)
+    private String address;
 
     @Column(nullable = false, length = 40)
     private String specAddress;
@@ -41,10 +49,10 @@ public class Member extends BaseEntity {
     @Column(length = 20)
     private String nickname;
 
-    @Column(nullable = false, columnDefinition = "INT DEFAULT 0")
+    @ColumnDefault("0")
     private Long point;
 
-    @Column(nullable = false, length = 50)
+//    @Column(nullable = false, length = 50)
     private String email;
 
     @Column(length = 20)
