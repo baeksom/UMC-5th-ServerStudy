@@ -4,7 +4,6 @@ import lombok.*;
 import umc.umcspring.domain.common.BaseEntity;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
