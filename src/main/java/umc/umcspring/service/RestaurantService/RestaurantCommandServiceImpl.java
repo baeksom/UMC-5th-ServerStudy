@@ -14,10 +14,11 @@ import umc.umcspring.repository.RestaurantCategoryRepository;
 import umc.umcspring.repository.RestaurantRepository;
 import umc.umcspring.web.dto.RestaurantRequestDTO;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class RestaurantCommandServiceImpl implements RestaurantCommandService {
 
     private final RestaurantRepository restaurantRepository;
