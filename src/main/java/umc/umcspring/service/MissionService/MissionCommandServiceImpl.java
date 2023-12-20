@@ -13,6 +13,7 @@ import umc.umcspring.web.dto.MissionRequestDTO;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class MissionCommandServiceImpl implements MissionCommandService{
 
     private final MissionRepository missionRepository;
