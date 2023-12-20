@@ -29,7 +29,7 @@ public enum ErrorStatus implements BaseErrorCode {
     RESTAURANT_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "COMMON400", "잘못된 요청입니다."),
     LOCATION_NOT_FOUND(HttpStatus.BAD_REQUEST, "COMMON400", "잘못된 요청입니다."),
     MEMBER_MISSION_NOT_FOUND(HttpStatus.BAD_REQUEST, "COMMON400", "잘못된 요청입니다."),
-    RESTAURANT_NOT_FOUND(HttpStatus.BAD_REQUEST, "COMMON400", "잘못된 요청입니다.");
+    RESTAURANT_NOT_FOUND(HttpStatus.BAD_REQUEST, "COMMON400", "레스토랑 id가 없습니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
