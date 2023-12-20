@@ -1,6 +1,9 @@
 package umc.umcspring.domain.mapping;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.umcspring.domain.Member;
 import umc.umcspring.domain.Mission;
 import umc.umcspring.domain.common.BaseEntity;
@@ -11,6 +14,8 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -23,7 +28,7 @@ public class MemberMission extends BaseEntity {
     private LocalDate completeDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "VARCHAR(20) DEFAULT 'CHALLENGING'")
+    @ColumnDefault("CHALLENGING")
     private MissionStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
