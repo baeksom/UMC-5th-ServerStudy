@@ -27,15 +27,6 @@ public class RestaurantCommandServiceImpl implements RestaurantCommandService {
 
     private final LocationRepository locationRepository;
 
-    // 해당 ID의 RestaurantCategory가 존재하는지 확인하는 메서드
-    public boolean doesRestaurantCategoryExist(Long categoryId) {
-        return restaurantCategoryRepository.existsById(categoryId);
-    }
-
-    // 해당 ID의 Location이 존재하는지 확인하는 메서드
-    public boolean doesLocationExist(Long categoryId) {
-        return restaurantRepository.existsById(categoryId);
-    }
     @Override
     @Transactional
     public Restaurant addRestaurant(RestaurantRequestDTO.AddRestaurantDTO request) {

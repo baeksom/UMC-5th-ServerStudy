@@ -3,6 +3,7 @@ package umc.umcspring.validation.validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.umcspring.apiPayload.code.status.ErrorStatus;
+import umc.umcspring.service.LocationService.LocationQueryService;
 import umc.umcspring.service.RestaurantService.RestaurantCommandServiceImpl;
 import umc.umcspring.validation.annotation.ExistLocation;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class LocationExistValidator implements ConstraintValidator<ExistLocation, Long> {
 
-    private final RestaurantCommandServiceImpl restaurantCommandService;
+    private final LocationQueryService locationQueryService;
     @Override
     public void initialize(ExistLocation constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
@@ -22,7 +23,7 @@ public class LocationExistValidator implements ConstraintValidator<ExistLocation
 
     @Override
     public boolean isValid(Long value, ConstraintValidatorContext context) {
-        boolean isValid = restaurantCommandService.doesRestaurantCategoryExist(value);
+        boolean isValid = locationQueryService.isLocationExist(value);
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();

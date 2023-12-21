@@ -26,7 +26,6 @@ public class ReviewCommandServiceImpl implements ReviewCommandService{
     private final MemberRepository memberRepository;
     private final MemberMissionRepository memberMissionRepository;
     private final RestaurantRepository restaurantRepository;
-    private final MissionRepository missionRepository;
 
 
     @Override
@@ -47,7 +46,7 @@ public class ReviewCommandServiceImpl implements ReviewCommandService{
             throw new IllegalArgumentException("memberMission의 회원과 입력의 회원 정보가 같지 않습니다.");
         }
 
-        // restaurantId = memberMission -> missionId -> restaurantId
+        // restaurantId == memberMission -> missionId -> restaurantId
         if (!restaurant.getId().equals(memberMission.getMission().getRestaurant().getId())) {
             throw new IllegalArgumentException("memberMission의 레스토랑과 입력의 레스토랑 정보가 같지 않습니다.");
         };
