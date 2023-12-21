@@ -26,12 +26,6 @@ public class MemberCommandServiceImpl implements MemberCommandService{
 
     private final FoodCategoryRepository foodCategoryRepository;
 
-
-    // 해당 ID의 FoodCategory가 존재하는지 확인하는 메서드
-    public boolean doesFoodCategoryExist(Long categoryId) {
-        return foodCategoryRepository.existsById(categoryId);
-    }
-
     @Override
     @Transactional
     public Member joinMember(MemberRequestDTO.JoinDTO request) {

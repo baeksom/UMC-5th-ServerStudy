@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.umcspring.apiPayload.code.status.ErrorStatus;
 import umc.umcspring.apiPayload.exception.handler.MemberHandler;
 import umc.umcspring.apiPayload.exception.handler.MissionHandler;
+import umc.umcspring.apiPayload.exception.handler.TempHandler;
 import umc.umcspring.domain.Member;
 import umc.umcspring.domain.Mission;
 import umc.umcspring.domain.mapping.MemberMission;
@@ -31,6 +32,10 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
 
         Mission mission = missionRepository.findById(missionId)
                 .orElseThrow(() -> new MissionHandler(ErrorStatus.MISSION_NOT_FOUND));
+
+        if (memberMissionRepository.existsByMemberAndMission(member, mission)){
+            throw new TempHandler(ErrorStatus.MEMBER_MISSION_ALREADY_EXIST);
+        };
 
         MemberMission newMemberMission = MemberMission.builder()
                 .member(member)
