@@ -5,7 +5,6 @@ import umc.umcspring.domain.common.BaseEntity;
 import umc.umcspring.domain.mapping.MemberMission;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -18,11 +17,11 @@ public class Review extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TEXT")
+    private String title;
+
     private String body;
 
-    @Column(nullable = false)
-    private Integer score;
+    private Float score;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_missions_id")
