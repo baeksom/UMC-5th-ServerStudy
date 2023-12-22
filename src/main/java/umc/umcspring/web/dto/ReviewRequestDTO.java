@@ -13,7 +13,7 @@ public class ReviewRequestDTO {
     public static class AddReviewDTO{
         String body;
         @NotNull
-        Integer score;
+        Float score;
         @ExistMember
         Long memberId;
         @ExistMemberMission
