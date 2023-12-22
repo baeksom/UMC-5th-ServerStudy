@@ -28,7 +28,7 @@ public class MemberMission extends BaseEntity {
     private LocalDate completeDate;
 
     @Enumerated(EnumType.STRING)
-    @ColumnDefault("CHALLENGING")
+    @Column(columnDefinition = "varchar(255) default 'CHALLENGING'")
     private MissionStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
